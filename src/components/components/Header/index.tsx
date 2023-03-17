@@ -1,8 +1,17 @@
 import React from "react";
-import { Wrapper } from "./styled";
+import Icon from "../../atom/Icon/Icon";
+import { Center, Left, Right, Wrapper } from "./styled";
 
 function Header() {
-  return <Wrapper>Header</Wrapper>;
+  return (
+    <Wrapper>
+      <Left />
+      <Center></Center>
+      <Right>
+        <Icon name="info" />
+      </Right>
+    </Wrapper>
+  );
 }
 
 export default Header;

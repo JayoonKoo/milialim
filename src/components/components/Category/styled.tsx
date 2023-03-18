@@ -13,20 +13,6 @@ export const HStack = styled.div`
   justify-content: space-between;
 `;
 
-export const SVGBox = styled.div`
-  background-color: #1e90ff;
-  border-radius: 50%;
-  width: ${rem(30)};
-  height: ${rem(30)};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  svg {
-    width: ${rem(17)};
-    color: #f1f2f6;
-  }
-`;
-
 export const NumberBox = styled.div`
   span {
     font-size: ${rem(20)};

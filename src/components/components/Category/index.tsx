@@ -1,14 +1,12 @@
 import React from "react";
-import Icon from "../../atom/Icon/Icon";
-import { CategoryName, HStack, NumberBox, SVGBox, Wrapper } from "./styled";
+import SVGBox from "../../atom/SVGBox";
+import { CategoryName, HStack, NumberBox, Wrapper } from "./styled";
 
 function Category() {
   return (
     <Wrapper>
       <HStack>
-        <SVGBox>
-          <Icon name="calendar" />
-        </SVGBox>
+        <SVGBox name="calendar" />
         <NumberBox>
           <span>1</span>
         </NumberBox>

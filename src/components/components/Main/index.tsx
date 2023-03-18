@@ -1,11 +1,15 @@
 import React from "react";
 import Category from "../Category";
-import { Wrapper } from "./styled";
+import { Categories, Wrapper } from "./styled";
 
 function Main() {
   return (
     <Wrapper>
-      <Category />
+      <Categories>
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Category key={i} />
+        ))}
+      </Categories>
     </Wrapper>
   );
 }

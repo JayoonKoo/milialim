@@ -3,8 +3,13 @@ import rem from "../../../lib/Rem";
 
 export const Wrapper = styled.div`
   background-color: #57606f;
-  border-radius: ${rem(4)};
+  border-radius: ${rem(8)};
   padding: ${rem(10)};
+  transition: all 0.2s;
+
+  &:hover {
+    filter: brightness(1.2);
+  }
 `;
 
 export const HStack = styled.div`

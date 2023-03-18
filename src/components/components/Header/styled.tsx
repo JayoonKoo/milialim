@@ -6,7 +6,7 @@ export const Wrapper = styled.header`
   height: ${rem(50)};
   display: flex;
   justify-content: space-between;
-  padding: 0 ${rem(10)};
+  padding: 0 ${rem(20)};
   position: relative;
 `;
 

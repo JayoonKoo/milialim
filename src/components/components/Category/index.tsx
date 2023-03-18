@@ -1,10 +1,15 @@
 import React from "react";
+import styled from "styled-components";
 import SVGBox from "../../atom/SVGBox";
 import { CategoryName, HStack, NumberBox, Wrapper } from "./styled";
 
-function Category() {
+export interface CategoryProps {
+  className?: string;
+}
+
+function Category({ className }: CategoryProps) {
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       <HStack>
         <SVGBox name="calendar" />
         <NumberBox>
@@ -16,4 +21,4 @@ function Category() {
   );
 }
 
-export default Category;
+export default styled(Category)``;

@@ -53,6 +53,7 @@ table {
 }
 body {
 	line-height: 1.2;
+	background-color: #2f3542;
 }
 a {
 	text-decoration: none;

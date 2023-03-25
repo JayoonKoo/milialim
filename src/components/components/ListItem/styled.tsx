@@ -31,9 +31,9 @@ export const NumberWrapper = styled.div`
   }
 `;
 
-export const Divider = styled.div<{ isLast?: boolean }>`
+export const Dvider = styled.div<{ isLast?: boolean }>`
   position: absolute;
-  border-top: ${rem(1)} solid #a4b0be;
+  border-top: ${rem(1)} solid #747d8c;
   height: ${rem(1)};
   bottom: 0;
   left: ${rem(55)};

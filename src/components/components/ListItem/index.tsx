@@ -1,6 +1,6 @@
 import React from "react";
 import SVGBox from "../../atom/SVGBox";
-import { TitleWrapper, Wrapper, NumberWrapper, Divider } from "./styled";
+import { TitleWrapper, Wrapper, NumberWrapper, Dvider } from "./styled";
 
 export interface ListItemProps {
   className?: string;
@@ -18,7 +18,7 @@ function ListItem({ className, isLast = false }: ListItemProps) {
         <span>5</span>
         <span>{">"}</span>
       </NumberWrapper>
-      <Divider isLast={isLast} />
+      <Dvider isLast={isLast} />
     </Wrapper>
   );
 }

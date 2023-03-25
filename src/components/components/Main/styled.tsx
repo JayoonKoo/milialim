@@ -7,6 +7,13 @@ export const Wrapper = styled.main`
   height: 100%;
   padding-left: ${rem(20)};
   padding-right: ${rem(20)};
+  padding-top: ${rem(50)};
+  padding-bottom: ${rem(50)};
+  overflow-y: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 `;
 
 export const Categories = styled.section`

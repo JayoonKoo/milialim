@@ -7,7 +7,10 @@ export const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 0 ${rem(20)};
-  position: relative;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
 `;
 
 export const Left = styled.div``;

@@ -69,9 +69,14 @@ html {
 	* {
 		box-sizing: inherit;
 	}
+	-webkit-touch-callout: none;
+	
+	-webkit-user-select: none;
+
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 button{
-background: inherit ; border:none; box-shadow:none; border-radius:0; padding:0; overflow:visible; cursor:pointer}
+background: transparent ; border:none; box-shadow:none; border-radius:0; padding:0; overflow:visible; cursor:pointer}
 input{
   outline: none;
   border:none;

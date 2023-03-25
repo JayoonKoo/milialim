@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import * as svg from "./svg";
 
 export type IconType = keyof typeof svg;
@@ -15,4 +16,4 @@ function Icon({ name, className, style }: IconProps) {
   });
 }
 
-export default Icon;
+export default styled(Icon)``;

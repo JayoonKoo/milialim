@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
+import useCategories from "../../../hooks/category/useCategories";
 import Category from "../Category";
 import ListItem from "../ListItem";
 import { Categories, MyList, MyListSection, Wrapper } from "./styled";
 
 function Main() {
+  const { fetch, loading, categories, error } = useCategories();
+
+  console.log(categories);
+
+  useEffect(() => {
+    fetch();
+  }, []);
+
+  if (loading) {
+    return <div>loading...</div>;
+  }
+
+  if (error) {
+    return <div>error...</div>;
+  }
+
   return (
     <Wrapper>
       <Categories>
-        {Array.from({ length: 5 }).map((_, i) => (
-          <Category key={i} />
+        {categories.map((c) => (
+          <Category key={c.id} {...c} />
         ))}
       </Categories>
       <MyListSection>

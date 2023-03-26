@@ -5,18 +5,21 @@ import { CategoryName, HStack, NumberBox, Wrapper } from "./styled";
 
 export interface CategoryProps {
   className?: string;
+  title: string;
+  count: number;
+  color: string;
 }
 
-function Category({ className }: CategoryProps) {
+function Category({ className, title, color, count }: CategoryProps) {
   return (
     <Wrapper className={className}>
       <HStack>
-        <SVGBox name="calendar" />
+        <SVGBox name="calendar" backgroundColor={color} />
         <NumberBox>
-          <span>1</span>
+          <span>{count}</span>
         </NumberBox>
       </HStack>
-      <CategoryName>오늘</CategoryName>
+      <CategoryName>{title}</CategoryName>
     </Wrapper>
   );
 }

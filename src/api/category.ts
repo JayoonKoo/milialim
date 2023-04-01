@@ -24,14 +24,35 @@ export function getCategories() {
 }
 
 type ResCategory = {
-  [key: number]: number;
+  [key: number]: {
+    count: number;
+    color: string;
+  };
 };
 
 const initialCategory = {
-  1: 0,
-  2: 0,
-  3: 0,
-  4: 0,
-  5: 0,
-  6: 0,
+  1: {
+    count: 0,
+    color: "#1e90ff",
+  },
+  2: {
+    count: 0,
+    color: "#1e90ff",
+  },
+  3: {
+    count: 0,
+    color: "#1e90ff",
+  },
+  4: {
+    count: 0,
+    color: "#1e90ff",
+  },
+  5: {
+    count: 0,
+    color: "#1e90ff",
+  },
+  6: {
+    count: 0,
+    color: "#1e90ff",
+  },
 };

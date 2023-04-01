@@ -12,10 +12,14 @@ function useCategories() {
 
     try {
       const resCategory = await getCategories();
-      categories.map((c) => ({
-        ...c,
-        count: resCategory[c.id],
-      }));
+      categories.map((c) => {
+        const { color, count } = resCategory[c.id];
+        return {
+          ...c,
+          count,
+          color,
+        };
+      });
       setCategories(categories);
     } catch (e: any) {
       setError(e.name);

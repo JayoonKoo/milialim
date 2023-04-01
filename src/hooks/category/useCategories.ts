@@ -11,7 +11,11 @@ function useCategories() {
     setLoading(true);
 
     try {
-      const categories = await getCategories();
+      const resCategory = await getCategories();
+      categories.map((c) => ({
+        ...c,
+        count: resCategory[c.id],
+      }));
       setCategories(categories);
     } catch (e: any) {
       setError(e.name);

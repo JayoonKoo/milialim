@@ -1,17 +1,18 @@
-import { Category } from "../type/category";
-
 export function getCategories() {
-  return new Promise<Category[]>((resolve, reject) => {
-    const categoriesStr = localStorage.getItem("categories");
+  const CATEGORY_KEY = "categories";
+
+  return new Promise<ResCategory>((resolve, reject) => {
+    const categoriesStr = localStorage.getItem(CATEGORY_KEY);
 
     if (!categoriesStr) {
-      resolve([]);
+      localStorage.setItem(CATEGORY_KEY, JSON.stringify(initialCategory));
+      resolve(initialCategory);
       return;
     }
 
     try {
       const categories = JSON.parse(categoriesStr);
-      resolve(categories as Category[]);
+      resolve(categories);
     } catch (e: any) {
       if (e.name === "SyntaxError") {
         reject({
@@ -21,3 +22,16 @@ export function getCategories() {
     }
   });
 }
+
+type ResCategory = {
+  [key: number]: number;
+};
+
+const initialCategory = {
+  1: 0,
+  2: 0,
+  3: 0,
+  4: 0,
+  5: 0,
+  6: 0,
+};

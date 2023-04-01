@@ -1,23 +1,31 @@
 import React, { useEffect } from "react";
 import useCategories from "../../../hooks/category/useCategories";
+import useMyList from "../../../hooks/category/useMyList";
 import Category from "../Category";
 import ListItem from "../ListItem";
 import { Categories, MyList, MyListSection, Wrapper } from "./styled";
 
 function Main() {
   const { fetch, loading, categories, error } = useCategories();
-
-  console.log(categories);
+  const {
+    fetch: fetchMyList,
+    loading: myListLoading,
+    error: myListError,
+    myList,
+  } = useMyList();
 
   useEffect(() => {
     fetch();
+    fetchMyList();
   }, []);
 
-  if (loading) {
+  const myListLastIndex = myList.length - 1;
+
+  if (loading || myListLoading) {
     return <div>loading...</div>;
   }
 
-  if (error) {
+  if (error || myListError) {
     return <div>error...</div>;
   }
 
@@ -33,8 +41,8 @@ function Main() {
           <span>나의목록</span>
         </div>
         <MyList>
-          {Array.from({ length: 10 }).map((_, i) => (
-            <ListItem key={i} isLast={i === 9} />
+          {myList.map((ml, i) => (
+            <ListItem key={ml.id} isLast={i === myListLastIndex} />
           ))}
         </MyList>
       </MyListSection>

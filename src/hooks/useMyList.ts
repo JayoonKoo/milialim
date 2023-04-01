@@ -1,5 +1,5 @@
 import { useState } from "react";
-import getMyList, { ResMyList } from "../../api/mylist";
+import getMyList, { ResMyList } from "../api/mylist";
 
 function useMyList() {
   const [loading, setLoading] = useState(false);

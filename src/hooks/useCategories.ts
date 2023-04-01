@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { getCategories } from "../../api/category";
-import { Category } from "../../type/category";
+import { getCategories } from "../api/category";
+import { Category } from "../type/category";
 
 function useCategories() {
   const [loading, setLoading] = useState(false);

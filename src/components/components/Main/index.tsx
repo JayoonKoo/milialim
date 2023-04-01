@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
-import useCategories from "../../../hooks/category/useCategories";
-import useMyList from "../../../hooks/category/useMyList";
+import { useRecoilValue } from "recoil";
+import { modalState } from "../../../atoms/uiState";
+import useCategories from "../../../hooks/useCategories";
+import useMyList from "../../../hooks/useMyList";
+import PopUp from "../../atom/PopUp";
 import Category from "../Category";
 import ListItem from "../ListItem";
 import { Categories, MyList, MyListSection, Wrapper } from "./styled";
@@ -13,6 +16,7 @@ function Main() {
     error: myListError,
     myList,
   } = useMyList();
+  const { addListItem: isOpenAddListItem } = useRecoilValue(modalState);
 
   useEffect(() => {
     fetch();
@@ -46,6 +50,7 @@ function Main() {
           ))}
         </MyList>
       </MyListSection>
+      {isOpenAddListItem && <PopUp>popup</PopUp>}
     </Wrapper>
   );
 }

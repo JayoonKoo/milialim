@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import rem from "../../../lib/Rem";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -8,4 +7,5 @@ export const Wrapper = styled.div`
   right: 0;
   bottom: 0;
   z-index: 200;
+  background-color: rgba(0, 0, 0, 0.3);
 `;

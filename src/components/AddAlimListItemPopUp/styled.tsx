@@ -1,5 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 import rem from "../../lib/Rem";
+import Button from "../atom/Button";
+import { Center, Wrapper as HeaderWrapper } from "../components/Header/styled";
 
 const open = keyframes`
 	0% {
@@ -36,6 +38,7 @@ export const Wrapper = styled.div<WrapperProps>`
   box-shadow: 1px -7px 9px -6px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 1px -7px 9px -6px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 1px -7px 9px -6px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
   ${({ isOpen }) =>
     isOpen
       ? css`
@@ -44,4 +47,15 @@ export const Wrapper = styled.div<WrapperProps>`
       : css`
           animation: ${close} 0.2s ease-in-out;
         `}
+
+  ${HeaderWrapper} {
+    background-color: #57606f;
+    position: relative;
+    ${Button} {
+      font-size: ${rem(16)};
+    }
+  }
+
+  ${Center} {
+  }
 `;

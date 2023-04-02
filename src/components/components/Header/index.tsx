@@ -1,14 +1,26 @@
-import React from "react";
-import Icon from "../../atom/Icon/Icon";
+import React, { ReactNode, Fragment } from "react";
 import { Center, Left, Right, Wrapper } from "./styled";
 
-function Header() {
+interface HeaderProps {
+  title?: string;
+  left?: ReactNode[];
+  right?: ReactNode[];
+  classNames?: string;
+}
+
+function Header({ title, left, right, classNames }: HeaderProps) {
   return (
-    <Wrapper>
-      <Left />
-      <Center></Center>
+    <Wrapper className={classNames}>
+      <Left>
+        {left?.map((l, i) => (
+          <Fragment key={i}>{l}</Fragment>
+        ))}
+      </Left>
+      <Center>{title}</Center>
       <Right>
-        <Icon name="info" />
+        {right?.map((r, i) => (
+          <Fragment key={i}>{r}</Fragment>
+        ))}
       </Right>
     </Wrapper>
   );

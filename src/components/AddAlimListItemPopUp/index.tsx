@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useSetRecoilState } from "recoil";
 import { modalState } from "../../atoms/uiState";
+import Button from "../atom/Button";
 import PopUp from "../atom/PopUp";
 import Header from "../components/Header";
 import { Wrapper } from "./styled";
@@ -23,12 +24,15 @@ function AddAlimListItemPopUp() {
   return (
     <PopUp>
       <Wrapper
-        onClick={handleCloseModal}
         ref={popupRef}
         onAnimationEnd={handleWhenClosed}
         isOpen={localModalState}
       >
-        <Header></Header>
+        <Header
+          left={[<Button onClick={handleCloseModal} title="취소" />]}
+          right={[<Button title="완료" disabled />]}
+          title="새로운 목록"
+        />
       </Wrapper>
     </PopUp>
   );

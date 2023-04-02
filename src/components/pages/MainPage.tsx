@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Icon from "../atom/Icon/Icon";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Main from "../components/Main";
@@ -7,7 +8,7 @@ import Main from "../components/Main";
 function MainPage() {
   return (
     <Wrapper>
-      <Header />
+      <Header right={[<Icon name="info" />]} />
       <Main />
       <Footer />
     </Wrapper>

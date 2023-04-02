@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import rem from "../../../lib/Rem";
 import Icon from "../Icon/Icon";
 
-export const Wrapper = styled.button<{ color: string }>`
+export const Wrapper = styled.button<{ color: string; disabled?: boolean }>`
   ${({ color }) =>
     css`
       color: ${color};
@@ -24,4 +24,13 @@ export const Wrapper = styled.button<{ color: string }>`
   &:active {
     filter: opacity(0.4);
   }
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: #747d8c;
+      &:active {
+        filter: none;
+      }
+    `}
 `;

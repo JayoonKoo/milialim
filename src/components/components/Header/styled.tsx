@@ -13,15 +13,25 @@ export const Wrapper = styled.header`
   z-index: 100;
 `;
 
-export const Left = styled.div``;
+export const Left = styled.div`
+  display: flex;
+  svg {
+    width: ${rem(25)};
+    color: #1e90ff;
+    transition: all 0.2s;
+
+    &:active {
+      filter: opacity(0.4);
+    }
+  }
+`;
 
 export const Center = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-25%, -25%);
+  transform: translate(-50%, -50%);
   color: white;
-  font-size: ${rem(20)};
 `;
 
 export const Right = styled.div`

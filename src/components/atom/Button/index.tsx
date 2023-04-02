@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import Icon, { IconType } from "../Icon/Icon";
 import { Wrapper } from "./styled";
 
@@ -8,13 +9,24 @@ export type ButtonProps = {
   color?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-function Button({ icon, title, color = "#1e90ff" }: ButtonProps) {
+function Button({
+  icon,
+  title,
+  color = "#1e90ff",
+  className,
+  ...rest
+}: ButtonProps) {
   return (
-    <Wrapper color={color}>
+    <Wrapper
+      disabled={rest.disabled}
+      color={color}
+      className={className}
+      {...rest}
+    >
       {icon && <Icon name={icon} />}
       <span>{title}</span>
     </Wrapper>
   );
 }
 
-export default Button;
+export default styled(Button)``;

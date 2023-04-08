@@ -3,7 +3,7 @@ import { useRecoilValue } from "recoil";
 import { modalState } from "../../../atoms/uiState";
 import useCategories from "../../../hooks/useCategories";
 import useMyList from "../../../hooks/useMyList";
-import AddAlimListItemPopUp from "../../AddAlimListItemPopUp";
+import AddAlimListItemPopUp from "../AddAlimListItemPopUp";
 import PopUp from "../../atom/PopUp";
 import Category from "../Category";
 import ListItem from "../ListItem";

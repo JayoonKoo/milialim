@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
-import rem from "../../lib/Rem";
-import Button from "../atom/Button";
-import { Center, Wrapper as HeaderWrapper } from "../components/Header/styled";
+import rem from "../../../lib/Rem";
+import Button from "../../atom/Button";
+import { Wrapper as HeaderWrapper } from "../Header/styled";
 
 const open = keyframes`
 	0% {
@@ -55,7 +55,8 @@ export const Wrapper = styled.div<WrapperProps>`
       font-size: ${rem(16)};
     }
   }
+`;
 
-  ${Center} {
-  }
+export const Form = styled.form`
+  padding: 0 ${rem(20)};
 `;

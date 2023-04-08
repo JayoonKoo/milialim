@@ -1,10 +1,11 @@
 import React, { useRef, useState } from "react";
 import { useSetRecoilState } from "recoil";
-import { modalState } from "../../atoms/uiState";
-import Button from "../atom/Button";
-import PopUp from "../atom/PopUp";
-import Header from "../components/Header";
-import { Wrapper } from "./styled";
+import { modalState } from "../../../atoms/uiState";
+import Button from "../../atom/Button";
+import PopUp from "../../atom/PopUp";
+import Section from "../../atom/Section";
+import Header from "../Header";
+import { Form, Wrapper } from "./styled";
 
 function AddAlimListItemPopUp() {
   const setModalState = useSetRecoilState(modalState);
@@ -33,6 +34,9 @@ function AddAlimListItemPopUp() {
           right={[<Button title="완료" disabled />]}
           title="새로운 목록"
         />
+        <Form>
+          <Section>section</Section>
+        </Form>
       </Wrapper>
     </PopUp>
   );

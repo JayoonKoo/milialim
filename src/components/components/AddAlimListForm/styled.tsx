@@ -13,6 +13,14 @@ export const Form = styled.form`
     align-items: center;
     padding-left: ${rem(20)};
     padding-right: ${rem(20)};
+
+    ${Input} {
+      margin-top: ${rem(15)};
+      height: ${rem(40)};
+    }
+  }
+
+  ${Section}:first-child {
     ${SVGBox} {
       width: ${rem(75)};
       height: ${rem(75)};
@@ -20,11 +28,6 @@ export const Form = styled.form`
         width: ${rem(50)};
         height: ${rem(50)};
       }
-    }
-
-    ${Input} {
-      margin-top: ${rem(15)};
-      height: ${rem(40)};
     }
   }
 

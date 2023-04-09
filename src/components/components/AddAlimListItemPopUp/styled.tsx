@@ -42,6 +42,8 @@ export const Wrapper = styled.div<WrapperProps>`
   -webkit-box-shadow: 1px -7px 9px -6px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 1px -7px 9px -6px rgba(0, 0, 0, 0.75);
   overflow: hidden;
+  overflow-y: auto;
+
   ${({ isOpen }) =>
     isOpen
       ? css`

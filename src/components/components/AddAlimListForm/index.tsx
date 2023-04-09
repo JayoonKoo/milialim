@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Section from "../../atom/Section";
+import { IconType } from "../../atom/Icon/Icon";
 import ColorsSection from "../ColorsSection";
+import IconSection from "../IconSection";
 import TitleSection from "../TitleSection";
 import { Form } from "./styled";
 
@@ -12,6 +13,7 @@ export interface AddAlimListFormProps {
 function AddAlimListForm({ handleSubmit, setIsAble }: AddAlimListFormProps) {
   const [value, setValue] = useState("");
   const [selectedColor, setSelectedColor] = useState("#1e90ff");
+  const [selectedIcon, setSelectedIcon] = useState<IconType>("list");
 
   useEffect(() => {
     setIsAble(value.length >= 1);
@@ -28,6 +30,7 @@ function AddAlimListForm({ handleSubmit, setIsAble }: AddAlimListFormProps) {
   return (
     <Form onSubmit={handleSubmit}>
       <TitleSection
+        selectedIcon={selectedIcon}
         handleClear={handleClear}
         handleTitleChange={handleTitleChange}
         value={value}
@@ -36,6 +39,10 @@ function AddAlimListForm({ handleSubmit, setIsAble }: AddAlimListFormProps) {
       <ColorsSection
         selectedColor={selectedColor}
         setSelectedColor={setSelectedColor}
+      />
+      <IconSection
+        selectedIcon={selectedIcon}
+        setSelectedIcon={setSelectedIcon}
       />
     </Form>
   );

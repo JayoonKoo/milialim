@@ -3,15 +3,20 @@ import styled from "styled-components";
 import Icon, { IconType } from "../Icon/Icon";
 import { Wrapper } from "./styled";
 
-export interface SVGBoxProps {
+export type SVGBoxProps = {
   name: IconType;
   backgroundColor?: string;
-	className?: string;
-}
+  className?: string;
+} & React.HTMLAttributes<HTMLDivElement>;
 
-function SVGBox({ name, backgroundColor = "#1e90ff", className }: SVGBoxProps) {
+function SVGBox({
+  name,
+  backgroundColor = "#1e90ff",
+  className,
+  ...rest
+}: SVGBoxProps) {
   return (
-    <Wrapper background={backgroundColor} className={className}>
+    <Wrapper background={backgroundColor} className={className} {...rest}>
       <Icon name={name} />
     </Wrapper>
   );

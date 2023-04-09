@@ -1,4 +1,5 @@
 import React from "react";
+import { IconType } from "../../atom/Icon/Icon";
 import Input from "../../atom/Input";
 import Section from "../../atom/Section";
 import { SVGWrapper } from "./styled";
@@ -8,6 +9,7 @@ export interface TitleSectionProps {
   handleTitleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleClear: () => void;
   color: string;
+  selectedIcon: IconType;
 }
 
 function TitleSection({
@@ -15,10 +17,11 @@ function TitleSection({
   handleClear,
   handleTitleChange,
   color,
+  selectedIcon,
 }: TitleSectionProps) {
   return (
     <Section>
-      <SVGWrapper name="list" backgroundColor={color} />
+      <SVGWrapper name={selectedIcon} backgroundColor={color} />
       <Input
         placeholder="목록 이름"
         value={value}

@@ -26,6 +26,10 @@ export const Row = styled.div`
       transform: translate(-50%, -50%);
     }
   }
+
+  & + & {
+    margin-top: ${margin};
+  }
 `;
 
 export const SVGWrapper = styled(SVGBox)<{ active?: boolean }>`

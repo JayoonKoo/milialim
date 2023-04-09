@@ -20,12 +20,17 @@ function IconSection({ selectedIcon, setSelectedIcon }: IconSectionProps) {
   return (
     <Wrapper>
       {Array.from({
-        length: parseInt(String(icons.length / COLUMN_COUNT)),
+        length: Math.ceil(icons.length / COLUMN_COUNT),
       }).map((_, rowIndex) => {
         const startIndex = rowIndex * COLUMN_COUNT;
         return (
           <Row key={rowIndex}>
             {Array.from({ length: 6 }).map((_, i) => {
+              const currentIndex = startIndex + i;
+              if (currentIndex > icons.length - 1) {
+                return null;
+              }
+
               const icon = icons[startIndex + i];
               return (
                 <SVGWrapper
@@ -47,6 +52,14 @@ function IconSection({ selectedIcon, setSelectedIcon }: IconSectionProps) {
 
 const COLUMN_COUNT = 6;
 
-const icons: IconType[] = ["list", "body", "heart", "pencil", "stack", "quote"];
+const icons: IconType[] = [
+  "list",
+  "body",
+  "heart",
+  "pencil",
+  "stack",
+  "quote",
+  "calendar",
+];
 
 export default IconSection;

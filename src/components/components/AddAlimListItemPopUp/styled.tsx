@@ -1,9 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
 import rem from "../../../lib/Rem";
 import Button from "../../atom/Button";
-import Input from "../../atom/Input";
-import Section from "../../atom/Section";
-import SVGBox from "../../atom/SVGBox";
 import { Wrapper as HeaderWrapper } from "../Header/styled";
 
 const open = keyframes`

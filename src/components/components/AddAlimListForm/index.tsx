@@ -1,39 +1,73 @@
-import React, { useEffect, useState } from "react";
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from "react";
 import { IconType } from "../../atom/Icon/Icon";
 import ColorsSection from "../ColorsSection";
 import IconSection from "../IconSection";
 import TitleSection from "../TitleSection";
 import { Form } from "./styled";
 
+export type AddAlimListFormHandler = {
+  submit: () => void;
+};
+
 export interface AddAlimListFormProps {
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   setIsAble: (isAble: boolean) => void;
 }
 
-function AddAlimListForm({ handleSubmit, setIsAble }: AddAlimListFormProps) {
-  const [value, setValue] = useState("");
+const AddAlimListForm = forwardRef<
+  AddAlimListFormHandler,
+  AddAlimListFormProps
+>(function AddAlimListForm({ setIsAble }, ref) {
+  const [input, setInput] = useState("");
   const [selectedColor, setSelectedColor] = useState("#1e90ff");
   const [selectedIcon, setSelectedIcon] = useState<IconType>("list");
 
+  useImperativeHandle(
+    ref,
+    () => {
+      return {
+        async submit() {
+          await handleSubmit();
+        },
+      };
+    },
+    [input, selectedColor, selectedIcon]
+  );
+
   useEffect(() => {
-    setIsAble(value.length >= 1);
-  }, [value]);
+    setIsAble(input.length >= 1);
+  }, [input]);
+
+  const handleSubmit = () => {
+    console.log(input);
+    console.log(selectedColor);
+    console.log(selectedIcon);
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(null);
+      }, 2000);
+    });
+  };
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setValue(value);
+    setInput(value);
   };
 
   const handleClear = () => {
-    setValue("");
+    setInput("");
   };
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form>
       <TitleSection
         selectedIcon={selectedIcon}
         handleClear={handleClear}
         handleTitleChange={handleTitleChange}
-        value={value}
+        value={input}
         color={selectedColor}
       />
       <ColorsSection
@@ -46,6 +80,5 @@ function AddAlimListForm({ handleSubmit, setIsAble }: AddAlimListFormProps) {
       />
     </Form>
   );
-}
-
+});
 export default AddAlimListForm;

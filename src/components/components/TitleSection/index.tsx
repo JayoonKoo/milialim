@@ -25,6 +25,7 @@ function TitleSection({
       <Input
         placeholder="목록 이름"
         value={value}
+        name="title"
         onChange={handleTitleChange}
         onClickClear={handleClear}
       />

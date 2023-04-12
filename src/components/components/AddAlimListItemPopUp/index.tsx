@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useSetRecoilState } from "recoil";
+import { ResMyList } from "../../../api/mylist";
 import { modalState } from "../../../atoms/uiState";
 import Button from "../../atom/Button";
 import PopUp from "../../atom/PopUp";
@@ -7,7 +8,11 @@ import AddAlimListForm, { AddAlimListFormHandler } from "../AddAlimListForm";
 import Header from "../Header";
 import { Wrapper } from "./styled";
 
-function AddAlimListItemPopUp() {
+type AddAlimListItemPopUpProps = {
+  addListItem: (addedItem: ResMyList) => void;
+};
+
+function AddAlimListItemPopUp({ addListItem }: AddAlimListItemPopUpProps) {
   const setModalState = useSetRecoilState(modalState);
   const [localModalState, setLocalModalState] = useState(true);
   const popupRef = useRef<HTMLDivElement>(null);
@@ -25,8 +30,16 @@ function AddAlimListItemPopUp() {
   };
 
   const handleAddListItem = async () => {
-    await formRef.current?.submit();
-    handleCloseModal();
+    try {
+      const addedAlimItem = await formRef.current?.submit();
+      if (!addedAlimItem) {
+        return;
+      }
+      addListItem(addedAlimItem);
+      handleCloseModal();
+    } catch (e: any) {
+      alert(e.message);
+    }
   };
 
   return (

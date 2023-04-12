@@ -24,6 +24,7 @@ function useMyList() {
     myList,
     error,
     fetch,
+    setMyList,
   };
 }
 

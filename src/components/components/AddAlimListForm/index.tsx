@@ -4,6 +4,7 @@ import React, {
   useImperativeHandle,
   useState,
 } from "react";
+import { addMyList, addMyListReq, ResMyList } from "../../../api/mylist";
 import { IconType } from "../../atom/Icon/Icon";
 import ColorsSection from "../ColorsSection";
 import IconSection from "../IconSection";
@@ -11,7 +12,7 @@ import TitleSection from "../TitleSection";
 import { Form } from "./styled";
 
 export type AddAlimListFormHandler = {
-  submit: () => void;
+  submit: () => Promise<ResMyList>;
 };
 
 export interface AddAlimListFormProps {
@@ -31,7 +32,7 @@ const AddAlimListForm = forwardRef<
     () => {
       return {
         async submit() {
-          await handleSubmit();
+          return await handleSubmit();
         },
       };
     },
@@ -43,14 +44,12 @@ const AddAlimListForm = forwardRef<
   }, [input]);
 
   const handleSubmit = () => {
-    console.log(input);
-    console.log(selectedColor);
-    console.log(selectedIcon);
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(null);
-      }, 2000);
-    });
+    const req: addMyListReq = {
+      color: selectedColor,
+      icon: selectedIcon,
+      title: input,
+    };
+    return addMyList(req);
   };
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

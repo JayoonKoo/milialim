@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useRecoilValue } from "recoil";
+import { ResMyList } from "../../../api/mylist";
 import { modalState } from "../../../atoms/uiState";
 import useCategories from "../../../hooks/useCategories";
 import useMyList from "../../../hooks/useMyList";
@@ -15,6 +16,7 @@ function Main() {
     loading: myListLoading,
     error: myListError,
     myList,
+    setMyList,
   } = useMyList();
   const { addListItem: isOpenAddListItem } = useRecoilValue(modalState);
 
@@ -22,6 +24,10 @@ function Main() {
     fetch();
     fetchMyList();
   }, []);
+
+  const handleAddListItem = (addedItem: ResMyList) => {
+    setMyList([...myList, addedItem]);
+  };
 
   const myListLastIndex = myList.length - 1;
 
@@ -46,11 +52,17 @@ function Main() {
         </div>
         <MyList>
           {myList.map((ml, i) => (
-            <ListItem key={ml.id} isLast={i === myListLastIndex} />
+            <ListItem
+              key={ml.id}
+              listItem={ml}
+              isLast={i === myListLastIndex}
+            />
           ))}
         </MyList>
       </MyListSection>
-      {isOpenAddListItem && <AddAlimListItemPopUp />}
+      {isOpenAddListItem && (
+        <AddAlimListItemPopUp addListItem={handleAddListItem} />
+      )}
     </Wrapper>
   );
 }

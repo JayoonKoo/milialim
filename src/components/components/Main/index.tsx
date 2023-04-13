@@ -4,6 +4,7 @@ import { ResMyList } from "../../../api/mylist";
 import { modalState } from "../../../atoms/uiState";
 import useCategories from "../../../hooks/useCategories";
 import useMyList from "../../../hooks/useMyList";
+import Loading from "../../atom/Loading";
 import AddAlimListItemPopUp from "../AddAlimListItemPopUp";
 import Category from "../Category";
 import ListItem from "../ListItem";
@@ -32,7 +33,7 @@ function Main() {
   const myListLastIndex = myList.length - 1;
 
   if (loading || myListLoading) {
-    return <div>loading...</div>;
+    return <Loading />;
   }
 
   if (error || myListError) {

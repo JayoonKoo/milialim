@@ -4,6 +4,7 @@ import { ResMyList } from "../../../api/mylist";
 import { modalState } from "../../../atoms/uiState";
 import useCategories from "../../../hooks/useCategories";
 import useMyList from "../../../hooks/useMyList";
+import Alert from "../../atom/Alert";
 import Loading from "../../atom/Loading";
 import AddAlimListItemPopUp from "../AddAlimListItemPopUp";
 import Category from "../Category";
@@ -64,6 +65,7 @@ function Main() {
       {isOpenAddListItem && (
         <AddAlimListItemPopUp addListItem={handleAddListItem} />
       )}
+      <Alert title="죄송합니다." />
     </Wrapper>
   );
 }
